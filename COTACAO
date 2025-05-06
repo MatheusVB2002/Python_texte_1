@@ -1,0 +1,10 @@
+# importar uma bibliot. para pedir uma informação 
+
+
+import requests
+def pegar_cotacao_moeda(moeda_origem, moeda_destino):
+    link = f"https://economia.awesomeapi.com.br/last/{moeda_origem}-{moeda_destino}"
+    requisicao = requests.get(link) #  tipo Get para enviar e put para enviar
+
+    cotacao = requisicao.json()[f"{moeda_origem}{moeda_destino}"]["bid"]
+    return cotacao
